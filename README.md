@@ -46,3 +46,26 @@ AI-Legal-Rights-Navigator/
 │   └── schemes.js
 │
 └── README.md
+
+## 🔄 System Workflow
+
+```text
+User
+  ↓
+Enter Personal Details / Ask Question
+  ↓
+AI Assistant
+  ↓
+User Information Analysis
+  ↓
+RAG / Knowledge Base
+  ↓
+Government Schemes & Legal Documents
+  ↓
+Eligibility Engine
+  ↓
+Relevant Scheme / Legal Information
+  ↓
+Benefits + Required Documents
+  ↓
+Official Government Source
