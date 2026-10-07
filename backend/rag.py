@@ -1,12 +1,11 @@
-import os
 import chromadb
-
 from sentence_transformers import SentenceTransformer
 
+DB_PATH = "backend/chroma_db"
 
-DB_PATH = "./chroma_db"
-
-client = chromadb.PersistentClient(path=DB_PATH)
+client = chromadb.PersistentClient(
+    path=DB_PATH
+)
 
 collection = client.get_or_create_collection(
     name="government_knowledge"
@@ -15,29 +14,6 @@ collection = client.get_or_create_collection(
 embedding_model = SentenceTransformer(
     "all-MiniLM-L6-v2"
 )
-
-
-def add_document(
-    document_id,
-    text,
-    source_url,
-    metadata=None
-):
-
-    embedding = embedding_model.encode(
-        text
-    ).tolist()
-
-    metadata = metadata or {}
-
-    metadata["source_url"] = source_url
-
-    collection.add(
-        ids=[document_id],
-        documents=[text],
-        embeddings=[embedding],
-        metadatas=[metadata]
-    )
 
 
 def search_documents(query, top_k=5):
@@ -51,8 +27,15 @@ def search_documents(query, top_k=5):
         n_results=top_k
     )
 
-    documents = results.get("documents", [[]])[0]
-    metadatas = results.get("metadatas", [[]])[0]
+    documents = results.get(
+        "documents",
+        [[]]
+    )[0]
+
+    metadatas = results.get(
+        "metadatas",
+        [[]]
+    )[0]
 
     output = []
 
@@ -63,9 +46,6 @@ def search_documents(query, top_k=5):
 
         output.append({
             "text": document,
-            "source": metadata.get(
-                "source_url"
-            ),
             "metadata": metadata
         })
 
