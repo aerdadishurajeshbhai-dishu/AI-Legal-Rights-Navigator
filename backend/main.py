@@ -24,16 +24,14 @@ app.add_middleware(
 def home():
 
     return {
-        "project":
-        "AI-Powered Legal Rights Navigator",
-
-        "status":
-        "Backend is running",
-
+        "project": "AI-Powered Legal Rights Navigator",
+        "status": "Backend is running",
         "features": [
-            "Eligibility Engine",
+            "AI Assistant",
             "RAG Search",
-            "Government Knowledge Base"
+            "Government Knowledge Base",
+            "Eligibility Engine",
+            "Official Sources"
         ]
     }
 
