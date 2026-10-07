@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI-Powered Legal Rights Navigator</title>
+
+    <meta name="description"
+          content="AI-powered Government Scheme and Legal Rights Navigator">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            background: #111827;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 80px 7%;
+            background: linear-gradient(135deg, #eef2ff, #ffffff);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #4b5563;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 15px;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #1d4ed8;
+        }
+
+        .secondary {
+            background: white;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+        }
+
+        .secondary:hover {
+            background: #eff6ff;
+        }
+
+        /* ================= AI CARD ================= */
+
+        .ai-card {
+            background: white;
+            width: 350px;
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.10);
+        }
+
+        .ai-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .ai-icon {
+            width: 45px;
+            height: 45px;
+            background: #dbeafe;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+        }
+
+        .ai-card h3 {
+            color: #111827;
+        }
+
+        .ai-card p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 18px;
+        }
+
+        .ai-option {
+            padding: 11px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 75px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 27px;
+            border-radius: 14px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* ================= ASSISTANT ================= */
+
+        .assistant-box {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+        }
+
+        .assistant-box textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            resize: vertical;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .assistant-box textarea:focus {
+            border-color: #2563eb;
+        }
+
+        .assistant-button {
+            margin-top: 15px;
+        }
+
+        #aiResponse {
+            margin-top: 20px;
+            padding: 18px;
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            border-radius: 8px;
+            display: none;
+        }
+
+        /* ================= ELIGIBILITY ================= */
+
+        .checker {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #2563eb;
+        }
+
+        .check-button {
+            margin-top: 22px;
+            width: 100%;
+        }
+
+        #eligibilityResult {
+            margin-top: 25px;
+            display: none;
+        }
+
+        .result-card {
+            background: #f0fdf4;
+            border-left: 5px solid #16a34a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .result-card h3 {
+            color: #166534;
+            margin-bottom: 10px;
+        }
+
+        /* ================= SCHEMES ================= */
+
+        .scheme-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .scheme-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+        }
+
+        .scheme-card h3 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .scheme-card p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 9px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        /* ================= LEGAL RIGHTS ================= */
+
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .right-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            border-top: 4px solid #2563eb;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+        }
+
+        .right-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .right-card p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* ================= WORKFLOW ================= */
+
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .workflow-step {
+            background: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 14px;
+        }
+
+        .number {
+            width: 45px;
+            height: 45px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        .workflow-step h3 {
+            margin-bottom: 8px;
+        }
+
+        .workflow-step p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* ================= DOCUMENTS ================= */
+
+        .documents {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 7px 25px rgba(0,0,0,0.06);
+        }
+
+        .documents li {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* ================= DISCLAIMER ================= */
+
+        .disclaimer {
+            margin: 0 7% 60px;
+            padding: 20px;
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            border-radius: 8px;
+            color: #7c2d12;
+            font-size: 14px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 30px 7%;
+        }
+
+        footer p {
+            color: #d1d5db;
+            font-size: 14px;
+            margin-top: 7px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .scheme-grid,
+            .rights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .workflow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .ai-card {
+                width: 100%;
+            }
+
+            .features,
+            .scheme-grid,
+            .rights-grid,
+            .workflow,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 55px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        ⚖️ AI Legal Rights Navigator
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#assistant">AI Assistant</a></li>
+        <li><a href="#schemes">Schemes</a></li>
+        <li><a href="#eligibility">Eligibility</a></li>
+        <li><a href="#rights">Legal Rights</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🚀 AI-Powered Citizen Assistance Platform
+        </div>
+
+        <h1>
+            Know Your
+            <span>Rights & Benefits</span>
+        </h1>
+
+        <p>
+            An intelligent platform designed to help citizens
+            discover relevant government schemes, understand
+            basic legal rights, check eligibility and identify
+            required documents.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#assistant" class="btn primary">
+                🤖 Ask AI Assistant
+            </a>
+
+            <a href="#eligibility" class="btn secondary">
+                ✅ Check Eligibility
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="ai-card">
+
+        <div class="ai-header">
+
+            <div class="ai-icon">
+                🤖
+            </div>
+
+            <div>
+                <h3>AI Assistant</h3>
+                <small>Smart Citizen Guidance</small>
+            </div>
+
+        </div>
+
+        <p>
+            Ask questions about government schemes,
+            eligibility, documents and legal rights.
+        </p>
+
+        <div class="ai-option">
+            🔎 Find government schemes
+        </div>
+
+        <div class="ai-option">
+            ✅ Check scheme eligibility
+        </div>
+
+        <div class="ai-option">
+            📄 Find required documents
+        </div>
+
+        <div class="ai-option">
+            ⚖️ Understand basic legal rights
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section" id="features">
+
+    <div class="section-title">
+
+        <h2>Platform Features</h2>
+
+        <p>
+            One platform for discovering government benefits
+            and understanding basic legal information.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">🤖</div>
+
+            <h3>AI Assistant</h3>
+
+            <p>
+                Ask questions in natural language and receive
+                personalized informational guidance.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">🔎</div>
+
+            <h3>Scheme Finder</h3>
+
+            <p>
+                Discover potentially relevant government
+                schemes based on your profile.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">✅</div>
+
+            <h3>Eligibility Checker</h3>
+
+            <p>
+                Check basic eligibility using age, income,
+                occupation and state.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">⚖️</div>
+
+            <h3>Legal Rights</h3>
+
+            <p>
+                Access simplified informational guidance
+                about basic legal rights.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AI ASSISTANT ================= -->
+
+<section class="section" id="assistant">
+
+    <div class="section-title">
+
+        <h2>🤖 AI Assistant</h2>
+
+        <p>
+            Ask a question about government schemes,
+            eligibility or legal rights.
+        </p>
+
+    </div>
+
+
+    <div class="assistant-box">
+
+        <textarea
+            id="question"
+            placeholder="Example: I am a student with family income of ₹3 lakh. Which schemes may be relevant to me?"
+        ></textarea>
+
+        <button
+            class="btn primary assistant-button"
+            onclick="askAssistant()"
+        >
+            Ask Assistant
+        </button>
+
+        <div id="aiResponse"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SCHEME FINDER ================= -->
+
+<section class="section" id="schemes">
+
+    <div class="section-title">
+
+        <h2>🔎 Government Scheme Finder</h2>
+
+        <p>
+            Explore sample scheme categories.
+            Official eligibility should always be verified.
+        </p>
+
+    </div>
+
+
+    <div class="scheme-grid">
+
+        <div class="scheme-card">
+
+            <span class="tag">Education</span>
+
+            <h3>Scholarship Support</h3>
+
+            <p>
+                Financial support opportunities for eligible
+                students pursuing education.
+            </p>
+
+            <p>
+                📄 Documents may include income certificate,
+                identity proof and educational documents.
+            </p>
+
+        </div>
+
+
+        <div class="scheme-card">
+
+            <span class="tag">Employment</span>
+
+            <h3>Employment Support</h3>
+
+            <p>
+                Government programs designed to support
+                employment and skill development.
+            </p>
+
+            <p>
+                📄 Documents depend on the specific program.
+            </p>
+
+        </div>
+
+
+        <div class="scheme-card">
+
+            <span class="tag">Social Welfare</span>
+
+            <h3>Social Welfare Benefits</h3>
+
+            <p>
+                Various welfare programs may provide support
+                to eligible citizens.
+            </p>
+
+            <p>
+                📄 Eligibility varies by scheme and applicant.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ELIGIBILITY CHECKER ================= -->
+
+<section class="section" id="eligibility">
+
+    <div class="section-title">
+
+        <h2>✅ Eligibility Checker</h2>
+
+        <p>
+            Enter basic information to receive a preliminary
+            recommendation.
+        </p>
+
+    </div>
+
+
+    <div class="checker">
+
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                <label>Age</label>
+
+                <input
+                    type="number"
+                    id="age"
+                    placeholder="Enter your age"
+                    min="1"
+                    max="120"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Annual Family Income</label>
+
+                <input
+                    type="number"
+                    id="income"
+                    placeholder="Example: 300000"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Occupation</label>
+
+                <select id="occupation">
+
+                    <option value="">Select occupation</option>
+
+                    <option value="student">
+                        Student
+                    </option>
+
+                    <option value="employee">
+                        Employee
+                    </option>
+
+                    <option value="self-employed">
+                        Self Employed
+                    </option>
+
+                    <option value="farmer">
+                        Farmer
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>State</label>
+
+                <select id="state">
+
+                    <option value="">Select state</option>
+
+                    <option>Gujarat</option>
+                    <option>Maharashtra</option>
+                    <option>Rajasthan</option>
+                    <option>Madhya Pradesh</option>
+                    <option>Other</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn primary check-button"
+            onclick="checkEligibility()"
+        >
+            Check Preliminary Eligibility
+        </button>
+
+
+        <div id="eligibilityResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LEGAL RIGHTS ================= -->
+
+<section class="section" id="rights">
+
+    <div class="section-title">
+
+        <h2>⚖️ Legal Rights Information</h2>
+
+        <p>
+            Simplified educational information about
+            important citizen rights.
+        </p>
+
+    </div>
+
+
+    <div class="rights-grid">
+
+        <div class="right-card">
+
+            <h3>Right to Equality</h3>
+
+            <p>
+                Citizens should understand the constitutional
+                principle of equality and protection against
+                discrimination.
+            </p>
+
+        </div>
+
+
+        <div class="right-card">
+
+            <h3>Right to Education</h3>
+
+            <p>
+                Learn about educational rights and the legal
+                framework supporting access to education.
+            </p>
+
+        </div>
+
+
+        <div class="right-card">
+
+            <h3>Consumer Rights</h3>
+
+            <p>
+                Citizens can learn about basic consumer
+                protections and available grievance mechanisms.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WORKFLOW ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>🔄 Proposed System Workflow</h2>
+
+        <p>
+            The planned architecture of the AI-powered platform.
+        </p>
+
+    </div>
+
+
+    <div class="workflow">
+
+        <div class="workflow-step">
+
+            <div class="number">1</div>
+
+            <h3>User Query</h3>
+
+            <p>
+                User enters personal details or asks a question.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-step">
+
+            <div class="number">2</div>
+
+            <h3>AI Analysis</h3>
+
+            <p>
+                AI analyzes the user's query and profile.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-step">
+
+            <div class="number">3</div>
+
+            <h3>RAG / Knowledge Base</h3>
+
+            <p>
+                Relevant government and legal information
+                can be retrieved from the knowledge base.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-step">
+
+            <div class="number">4</div>
+
+            <h3>Result</h3>
+
+            <p>
+                User receives guidance, documents and
+                relevant official sources.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DOCUMENTS ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>📄 Common Document Guidance</h2>
+
+        <p>
+            Documents vary by scheme. Always verify requirements
+            on the official scheme portal.
+        </p>
+
+    </div>
+
+
+    <div class="documents">
+
+        <ul>
+
+            <li>🪪 Identity Proof</li>
+
+            <li>📄 Address / Residence Proof</li>
+
+            <li>💰 Income Certificate</li>
+
+            <li>🎓 Educational Documents</li>
+
+            <li>🏦 Bank Account Details</li>
+
+            <li>📸 Passport-size Photograph</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DISCLAIMER ================= -->
+
+<div class="disclaimer">
+
+    <strong>⚠️ Important Disclaimer:</strong>
+
+    This platform is an academic project intended for
+    informational and educational purposes. It does not
+    provide professional legal advice or guarantee scheme
+    eligibility. Users should verify current eligibility,
+    requirements and legal information through official
+    government sources or qualified legal professionals.
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>⚖️ AI-Powered Legal Rights Navigator</h3>
+
+    <p>
+        Academic Project | AI + RAG + Eligibility Assistance
+    </p>
+
+    <p>
+        © 2026 All Rights Reserved
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* ================= AI ASSISTANT ================= */
+
+    function askAssistant() {
+
+        const question =
+            document.getElementById("question").value.trim();
+
+        const response =
+            document.getElementById("aiResponse");
+
+        if (question === "") {
+
+            response.style.display = "block";
+
+            response.innerHTML =
+                "⚠️ Please enter your question first.";
+
+            return;
+        }
+
+        response.style.display = "block";
+
+        response.innerHTML = `
+            <strong>🤖 Preliminary Assistant Response</strong>
+            <br><br>
+
+            Your question has been received.
+
+            <br><br>
+
+            In the final version of this project,
+            an AI + RAG system will retrieve relevant
+            information from verified government and
+            legal documents.
+
+            <br><br>
+
+            <strong>Your question:</strong>
+            ${question}
+
+            <br><br>
+
+            ⚠️ This prototype does not yet provide
+            real legal advice or live government data.
+        `;
+    }
+
+
+    /* ================= ELIGIBILITY CHECKER ================= */
+
+    function checkEligibility() {
+
+        const age =
+            parseInt(document.getElementById("age").value);
+
+        const income =
+            parseInt(document.getElementById("income").value);
+
+        const occupation =
+            document.getElementById("occupation").value;
+
+        const state =
+            document.getElementById("state").value;
+
+        const result =
+            document.getElementById("eligibilityResult");
+
+
+        if (
+            !age ||
+            !income ||
+            !occupation ||
+            !state
+        ) {
+
+            result.style.display = "block";
+
+            result.innerHTML = `
+                <div class="result-card"
+                     style="background:#fff7ed;
+                            border-left-color:#f97316;">
+
+                    <h3 style="color:#9a3412;">
+                        ⚠️ Missing Information
+                    </h3>
+
+                    <p>
+                        Please complete all fields before
+                        checking eligibility.
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+
+        let message = "";
+
+
+        if (
+            occupation === "student" &&
+            income <= 500000
+        ) {
+
+            message = `
+                <strong>🎓 Education-related schemes may be
+                relevant to your profile.</strong>
+
+                <br><br>
+
+                Your profile indicates that you are a student
+                with an annual family income within the
+                preliminary range used by this prototype.
+
+                <br><br>
+
+                Please verify the exact scheme-specific
+                eligibility criteria on the official portal.
+            `;
+
+        } else {
+
+            message = `
+                <strong>🔎 Further scheme matching is required.</strong>
+
+                <br><br>
+
+                Your profile may match some government programs,
+                but eligibility depends on scheme-specific
+                conditions.
+
+                <br><br>
+
+                The future AI recommendation engine will compare
+                your profile against the scheme knowledge base.
+            `;
+        }
+
+
+        result.style.display = "block";
+
+        result.innerHTML = `
+            <div class="result-card">
+
+                <h3>✅ Preliminary Result</h3>
+
+                <p>${message}</p>
+
+            </div>
+        `;
+    }
+
+</script>
+
+</body>
+</html>
