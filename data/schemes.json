@@ -1,16 +1,25 @@
 [
   {
     "name": "PM Vishwakarma",
-    "category": "Skill / Employment",
     "eligibility": {
       "min_age": 18,
       "occupations": [
-        "artisan",
-        "craftsperson"
-      ]
+        "carpenter",
+        "blacksmith",
+        "goldsmith",
+        "potter",
+        "sculptor",
+        "stone breaker",
+        "cobbler",
+        "mason",
+        "basket maker",
+        "barber",
+        "washerman",
+        "tailor"
+      ],
+      "states": []
     },
-    "official_source": "https://www.myscheme.gov.in/schemes/pmv",
-    "source_type": "myScheme",
+    "official_source": "https://www.myscheme.gov.in/schemes/pm-vishwakarma",
     "last_verified": "2026-10-07"
   }
 ]
